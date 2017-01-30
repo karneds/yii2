@@ -316,6 +316,7 @@ class Query extends Component implements QueryInterface
         if ($this->emulateExecution) {
             return 0;
         }
+        $this->orderBy = [];
         return $this->queryScalar("COUNT($q)", $db);
     }
 
@@ -332,6 +333,7 @@ class Query extends Component implements QueryInterface
         if ($this->emulateExecution) {
             return 0;
         }
+        $this->orderBy = [];
         return $this->queryScalar("SUM($q)", $db);
     }
 
@@ -348,6 +350,7 @@ class Query extends Component implements QueryInterface
         if ($this->emulateExecution) {
             return 0;
         }
+        $this->orderBy = [];
         return $this->queryScalar("AVG($q)", $db);
     }
 
@@ -361,6 +364,7 @@ class Query extends Component implements QueryInterface
      */
     public function min($q, $db = null)
     {
+        $this->orderBy = [];
         return $this->queryScalar("MIN($q)", $db);
     }
 
@@ -374,6 +378,7 @@ class Query extends Component implements QueryInterface
      */
     public function max($q, $db = null)
     {
+        $this->orderBy = [];
         return $this->queryScalar("MAX($q)", $db);
     }
 
